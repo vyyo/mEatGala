@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FoodContainer : MonoBehaviour
 {
@@ -15,7 +16,12 @@ public class FoodContainer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            resistance = resistance - 1;
+            animator.SetFloat("Resistance", resistance);
+            Debug.Log("Resistenza attuale: " + resistance);
+        }
     }
 
     public void FillContainer(Food food)
@@ -25,7 +31,10 @@ public class FoodContainer : MonoBehaviour
 
         spriteRenderer.sprite = food.foodSprite;
         animator.runtimeAnimatorController = food.animations;
+        animator.SetFloat("Resistance", resistance);
 
+
+        //collision setup
         gameObject.AddComponent<PolygonCollider2D>();
         gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
         gameObject.GetComponent<PolygonCollider2D>().useDelaunayMesh = true;
