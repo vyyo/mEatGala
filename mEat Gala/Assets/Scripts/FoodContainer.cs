@@ -3,8 +3,9 @@ using UnityEngine.InputSystem;
 
 public class FoodContainer : MonoBehaviour
 {
-    public int resistance;
+    public int resistance = 1;
     public int saturation;
+    private bool destroying = false;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +22,13 @@ public class FoodContainer : MonoBehaviour
             resistance = resistance - 1;
             animator.SetFloat("Resistance", resistance);
             Debug.Log("Resistenza attuale: " + resistance);
+        }
+
+        if(resistance == 0 && !destroying)
+        {
+            destroying = true;
+            GameManager.gameManager.RemoveFood();
+            Destroy(gameObject, 0.1f);
         }
     }
 

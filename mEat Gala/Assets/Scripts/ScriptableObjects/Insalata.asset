@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   course: 1
   foodSprite: {fileID: -7787502460901795513, guid: 293663e95791aa2478d95529b698a525, type: 3}
-  resistance: 3
+  resistance: 40
   saturation: 1
-  animations: {fileID: 0}
+  animations: {fileID: 9100000, guid: 4ce4ccf1734417446ae9e106eb3bbac8, type: 2}

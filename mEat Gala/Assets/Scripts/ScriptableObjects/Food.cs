@@ -17,4 +17,13 @@ public class Food : ScriptableObject
         mainCourse = 3,
         dessert = 4
     }
+
+    /*public enum InputType
+    {
+        tap = 1,
+        L2R2 = 2,
+        Twist = 3
+    }
+    */
+
 }
