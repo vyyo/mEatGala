@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1374c93da5ec534d87929db39631d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depletionMultiplier: 5
+  depletionMultiplier: 6
 --- !u!1 &8641649054443025647
 GameObject:
   m_ObjectHideFlags: 0

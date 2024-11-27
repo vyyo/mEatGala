@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     //Move
     Vector2 move;
     [SerializeField] float moveSpeed = 3;
+    [SerializeField] int reverseThreshold = 65; //if saturation is lower than this, move vector is inverted
     //Twist
     Vector2 turn;
     private float oldRotation = 0;
@@ -74,7 +75,14 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        transform.position = new Vector2 (transform.position.x, transform.position.y) + (move * Time.deltaTime * moveSpeed);
+        if(GameManager.gameManager.playerSaturation >= 65)
+        {
+            transform.position = new Vector2 (transform.position.x, transform.position.y) + (move * Time.deltaTime * moveSpeed);
+        }
+        else
+        {
+            transform.position = new Vector2 (transform.position.x, transform.position.y) - (move * Time.deltaTime * moveSpeed);
+        }
     }
 
     void Bite()
