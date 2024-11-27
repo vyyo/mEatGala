@@ -71,7 +71,6 @@ public class Signore : MonoBehaviour
                 if(currentStanceChance1 >= randomNum)
                 {
                     stance = 1;
-                    signoreAnimator.Play("SignoreInternal");
                 }
                 else
                 {
@@ -83,29 +82,37 @@ public class Signore : MonoBehaviour
                 if(currentStanceChance2 >= randomNum)
                 {
                     stance = 2;
-                    signoreAnimator.Play("SignoreFront");
                 }
                 else
                 {
                     stance = 0;
-                    signoreAnimator.Play("SignoreExternal");
                     currentStanceChance2 = currentStanceChance2 + stanceIncrement;
                 }
             break;
 
             case 2:
                 stance = 0;
-                signoreAnimator.Play("SignoreExternal");
                 currentStanceChance1 = stanceChance1;
                 currentStanceChance2 = stanceChance2;
             break;
 
             default:
             stance = 0;
-            signoreAnimator.Play("SignoreExternal");
 
             currentStanceChance1 = stanceChance1;
             currentStanceChance2 = stanceChance2;
+            break;
+        }
+        switch(stance)
+        {
+            case 0:
+                signoreAnimator.Play("SignoreExternal");
+            break;
+            case 1:
+                signoreAnimator.Play("SignoreInternal");
+            break;
+            case 2:
+                signoreAnimator.Play("SignoreFront");
             break;
         }
         Debug.Log(stance);
