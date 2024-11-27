@@ -331,10 +331,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 981381725}
-  turnTime: 3
+  turnTime: 2
   stanceChance1: 50
   stanceChance2: 40
-  stanceIncrement: 10
+  stanceIncrement: 20
 --- !u!114 &281723470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377836555796121192, guid: 92c61e8dfd0ad424e93843c0cacf715a, type: 3}
