@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 254391605}
   - component: {fileID: 254391604}
   - component: {fileID: 254391606}
+  - component: {fileID: 254391607}
   m_Layer: 0
   m_Name: Signore
   m_TagString: Untagged
@@ -331,10 +332,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 981381725}
-  turnTime: 2
+  signoreAnimator: {fileID: 254391607}
+  turnTime: 2.5
   stanceChance1: 50
   stanceChance2: 40
   stanceIncrement: 20
+--- !u!95 &254391607
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254391603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fb5e7a080792824890e090669d7514b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &281723470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377836555796121192, guid: 92c61e8dfd0ad424e93843c0cacf715a, type: 3}

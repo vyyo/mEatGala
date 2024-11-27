@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,5 +43,26 @@ public class GameManager : MonoBehaviour
     public void AddFood()
     {
         foodCount = foodCount + 1;
+    }
+
+    public void Damage()
+    {
+        player.gameObject.transform.position = startingPosition;
+        player.target = null;
+        playerHealth = playerHealth - 1;
+        if(playerHealth <= 0)
+        {
+            GameOver();
+        }
+        else
+        {
+            Debug.Log("Remaining Health: " + playerHealth);
+        }
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game over!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

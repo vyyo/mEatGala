@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         if(oldRotation != 0)
         {
             float angleDifference = newRotation - oldRotation;
-            Debug.Log(angleDifference);
+            //Debug.Log(angleDifference);
             if(angleDifference > 1 || angleDifference < -1)
             {
                 Debug.Log("Cheater");

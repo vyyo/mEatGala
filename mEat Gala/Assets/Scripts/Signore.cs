@@ -4,9 +4,14 @@ using UnityEngine;
 public class Signore : MonoBehaviour
 {
     [SerializeField] Player player;
+    [SerializeField] Animator signoreAnimator;
 
     [SerializeField] float turnTime = 3;
     private float countDown;
+
+    private float damageTimer = 0.5f;
+    private float damageCountDown;
+    private bool damage;
 
     private int stance;
     [SerializeField] int stanceChance1 = 50;
@@ -18,8 +23,10 @@ public class Signore : MonoBehaviour
     void Awake()
     {
         countDown = turnTime; //time between TurnLogic() calls
+        damageCountDown = damageTimer;
 
         stance = 0; //inital stance(0 = external, 1 = internal, 2 = front)
+        signoreAnimator.Play("SignoreExternal");
         currentStanceChance1 = stanceChance1;
         currentStanceChance2 = stanceChance2;
     }
@@ -32,17 +39,39 @@ public class Signore : MonoBehaviour
             TurnLogic();
             countDown = turnTime;
         }
+
+        if(stance == 2)
+        {
+            if(player.target != null)
+            {
+                damage = true;
+            }
+        }
+        if(damage)
+        {
+            damageCountDown -= Time.deltaTime;
+            if(damageCountDown <= 0)
+            {
+                GameManager.gameManager.Damage();
+                stance = 0;
+                signoreAnimator.Play("SignoreExternal");
+                damageCountDown = damageTimer;
+                damage = false;
+            }
+        }
     }
 
     void TurnLogic()
     {
+        int randomNum = Random.Range(0,100);
+        Debug.Log("Random num: " + randomNum + "Chance1: " + currentStanceChance1 + "Chance2: " + currentStanceChance2);
         switch(stance)
         {
             case 0:
-                if(currentStanceChance1 >= Random.Range(0,100))
+                if(currentStanceChance1 >= randomNum)
                 {
                     stance = 1;
-                    //UpdateAnimator()
+                    signoreAnimator.Play("SignoreInternal");
                 }
                 else
                 {
@@ -51,29 +80,30 @@ public class Signore : MonoBehaviour
             break;
 
             case 1:
-                if(currentStanceChance2 >= Random.Range(0,100))
+                if(currentStanceChance2 >= randomNum)
                 {
                     stance = 2;
-                    //UpdateAnimator()
+                    signoreAnimator.Play("SignoreFront");
                 }
                 else
                 {
+                    stance = 0;
+                    signoreAnimator.Play("SignoreExternal");
                     currentStanceChance2 = currentStanceChance2 + stanceIncrement;
                 }
             break;
 
             case 2:
-                if(player.target != null)
-                {
-                    player.gameObject.transform.position = GameManager.startingPosition;
-                    player.target = null;
-                    Debug.Log("Damage");
-                }
-                stance = 3;
+                stance = 0;
+                signoreAnimator.Play("SignoreExternal");
+                currentStanceChance1 = stanceChance1;
+                currentStanceChance2 = stanceChance2;
             break;
 
             default:
             stance = 0;
+            signoreAnimator.Play("SignoreExternal");
+
             currentStanceChance1 = stanceChance1;
             currentStanceChance2 = stanceChance2;
             break;
