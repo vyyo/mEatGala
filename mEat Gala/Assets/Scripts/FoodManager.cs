@@ -7,17 +7,18 @@ public class FoodManager : MonoBehaviour
     [SerializeField] int currentCourse = 0; //the course to be displayed. The amount of food for each course is double this value
     [SerializeField] GameObject foodContainer; //empty food prefab, instantiated on FoodSpawn
 
-    [SerializeField] GameObject table; //the table object/boundary, on which food will be spawned
-    List<Bounds> tableBounds = new List<Bounds>(); //list of spawn areas for FoodSpawn
+    [SerializeField] GameObject[] targets; //target positions for FoodSpawn()
+    /*[SerializeField] GameObject table; //the table object/boundary, on which food will be spawned
+    List<Bounds> tableBounds = new List<Bounds>(); //list of spawn areas for FoodSpawn*/
 
     void Start()
     {
         //fill tableBounds
-        BoxCollider2D[] tableColliders = table.GetComponentsInChildren<BoxCollider2D>();
+        /*BoxCollider2D[] tableColliders = table.GetComponentsInChildren<BoxCollider2D>();
         foreach (BoxCollider2D collider in tableColliders)
         {
             tableBounds.Add(collider.bounds);
-        }
+        }*/
         //first course
         NextCourse();
     }
@@ -28,12 +29,12 @@ public class FoodManager : MonoBehaviour
         
     }
 
-    private void FoodSpawn(Food food)
+    private void FoodSpawn(Food food, GameObject target)
     {
-        int i = Random.Range(0, tableBounds.Count);
+        /*int i = Random.Range(0, tableBounds.Count);
         float randomPosX = Random.Range(tableBounds[i].min.x, tableBounds[i].max.x);
-        float randomPosY = Random.Range(tableBounds[i].min.y, tableBounds[i].max.y);
-        var newContainer = Instantiate(foodContainer, new Vector3(randomPosX,randomPosY,0), new Quaternion(0,0,0,0));
+        float randomPosY = Random.Range(tableBounds[i].min.y, tableBounds[i].max.y);*/
+        var newContainer = Instantiate(foodContainer, target.transform.position, new Quaternion(0,0,0,0));
         newContainer.GetComponent<FoodContainer>().FillContainer(food);
     }
 
@@ -42,6 +43,14 @@ public class FoodManager : MonoBehaviour
     public void NextCourse()
     {
         currentCourse = currentCourse + 1;
+
+        List<GameObject> freeTargets = new List<GameObject>();
+
+        foreach(GameObject target in targets)
+        {
+            freeTargets.Add(target);
+        }
+
         List<Food> availableFoods = new List<Food>(); 
 
         foreach(Food food in foods)
@@ -57,7 +66,9 @@ public class FoodManager : MonoBehaviour
         {
             for(int i = 0; i < currentCourse * 2; i++)
             {
-                FoodSpawn(availableFoods[Random.Range(0, availableFoods.Count)]);
+                int randomTarget = Random.Range(0, freeTargets.Count);
+                FoodSpawn(availableFoods[Random.Range(0, availableFoods.Count)],freeTargets[randomTarget]);
+                freeTargets.RemoveAt(randomTarget);
                 GameManager.gameManager.AddFood();
             }
         }
