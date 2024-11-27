@@ -29,7 +29,7 @@ public class FoodContainer : MonoBehaviour
         if(resistance <= 0 && !destroying)
         {
             destroying = true;
-            GameManager.gameManager.RemoveFood();
+            GameManager.gameManager.RemoveFood(saturation);
             Destroy(gameObject, 0.1f);
         }
     }

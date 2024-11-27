@@ -101,9 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553ec3fa623525f409322dbcf7ce46b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   signoreAnimator: {fileID: 5899865004879730642}
-  turnTime: 2.5
+  turnTime: 2
   stanceChance1: 50
   stanceChance2: 40
   stanceIncrement: 20

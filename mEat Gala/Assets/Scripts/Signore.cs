@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Signore : MonoBehaviour
 {
-    [SerializeField] Player player;
     [SerializeField] Animator signoreAnimator;
 
     [SerializeField] float turnTime = 3;
@@ -31,9 +30,9 @@ public class Signore : MonoBehaviour
         currentStanceChance2 = stanceChance2;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        countDown -= Time.deltaTime;
+        countDown -= Time.fixedDeltaTime;
         if(countDown <= 0)
         {
             TurnLogic();
@@ -42,14 +41,14 @@ public class Signore : MonoBehaviour
 
         if(stance == 2)
         {
-            if(player.target != null)
+            if(GameManager.gameManager.player.target != null)
             {
                 damage = true;
             }
         }
         if(damage)
         {
-            damageCountDown -= Time.deltaTime;
+            damageCountDown -= Time.fixedDeltaTime;
             if(damageCountDown <= 0)
             {
                 GameManager.gameManager.Damage();
