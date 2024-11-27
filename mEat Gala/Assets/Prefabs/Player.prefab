@@ -190,5 +190,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 2249209729879166335}
-  moveSpeed: 5
+  moveSpeed: 6.5
   twistMultiplier: 2

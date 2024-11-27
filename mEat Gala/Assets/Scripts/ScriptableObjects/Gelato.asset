@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Gelato
   m_EditorClassIdentifier: 
   course: 4
-  inputType: 1
+  inputType: 2
   foodSprite: {fileID: -5307296434654179313, guid: 29503fff784c4a34ba9742d72468cff0, type: 3}
-  resistance: 25
+  resistance: 20
   saturation: 1
   animations: {fileID: 0}
