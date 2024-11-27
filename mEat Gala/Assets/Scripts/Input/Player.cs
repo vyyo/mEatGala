@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     //Bite
     private bool bit = false;
 
-    FoodContainer target; //targeted FoodContainer
+    public FoodContainer target; //targeted FoodContainer
 
     void Awake()
     {
