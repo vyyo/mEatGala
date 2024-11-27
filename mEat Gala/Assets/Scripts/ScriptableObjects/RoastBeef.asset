@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ee541bae4d630498411d38a887f5e5, type: 3}
-  m_Name: Fonduta
+  m_Name: RoastBeef
   m_EditorClassIdentifier: 
-  course: 1
-  inputType: 2
-  foodSprite: {fileID: -4198473183829428776, guid: 6f6b7b8d519d31a48a2f7b7e34329653, type: 3}
-  resistance: 25
+  course: 3
+  inputType: 3
+  foodSprite: {fileID: 4444196450345712769, guid: a7a39e0f86437ae40b8bd81c9a054935, type: 3}
+  resistance: 40
   saturation: 1
-  animations: {fileID: 9100000, guid: fed1349730db6b84d8f0e2a3c28b10f0, type: 2}
+  animations: {fileID: 0}
