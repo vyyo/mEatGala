@@ -5,8 +5,9 @@ using UnityEngine;
 public class Food : ScriptableObject
 {
     public Courses course;
+    public InputType inputType;
     public Sprite foodSprite;
-    public int resistance = 1;
+    public float resistance = 1;
     public int saturation = 1;
     public AnimatorController animations;
 
@@ -18,12 +19,11 @@ public class Food : ScriptableObject
         dessert = 4
     }
 
-    /*public enum InputType
+    public enum InputType
     {
-        tap = 1,
-        L2R2 = 2,
-        Twist = 3
+        Tap = 1,
+        Twist = 2,
+        L2R2 = 3
     }
-    */
 
 }

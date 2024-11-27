@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7320853803624185560}
   m_Layer: 0
   m_Name: FoodContainer
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,5 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resistance: 0
   saturation: 0
+  inputType: 0
   spriteRenderer: {fileID: 4209519172741518793}
   animator: {fileID: 7393495415849157183}

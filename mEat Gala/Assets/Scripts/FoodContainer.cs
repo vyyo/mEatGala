@@ -3,8 +3,10 @@ using UnityEngine.InputSystem;
 
 public class FoodContainer : MonoBehaviour
 {
-    public int resistance = 1;
+    private float initialResistance;
+    public float resistance = 1;
     public int saturation;
+    public int inputType;
     private bool destroying = false;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Animator animator;
@@ -17,14 +19,14 @@ public class FoodContainer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(resistance > initialResistance)
         {
-            resistance = resistance - 1;
-            animator.SetFloat("Resistance", resistance);
-            Debug.Log("Resistenza attuale: " + resistance);
+            resistance = initialResistance;
         }
+        
+        animator.SetFloat("Resistance", resistance);
 
-        if(resistance == 0 && !destroying)
+        if(resistance <= 0 && !destroying)
         {
             destroying = true;
             GameManager.gameManager.RemoveFood();
@@ -34,8 +36,10 @@ public class FoodContainer : MonoBehaviour
 
     public void FillContainer(Food food)
     {
-        resistance = food.resistance;
+        initialResistance = food.resistance;
+        resistance = initialResistance;
         saturation = food.saturation;
+        inputType = (int) food.inputType;
 
         spriteRenderer.sprite = food.foodSprite;
         animator.runtimeAnimatorController = food.animations;

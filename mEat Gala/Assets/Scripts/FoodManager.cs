@@ -55,7 +55,7 @@ public class FoodManager : MonoBehaviour
 
         if(availableFoods.Count > 0)
         {
-            for(int i = 0; i < currentCourse * 8; i++)
+            for(int i = 0; i < currentCourse * 2; i++)
             {
                 FoodSpawn(availableFoods[Random.Range(0, availableFoods.Count)]);
                 GameManager.gameManager.AddFood();
