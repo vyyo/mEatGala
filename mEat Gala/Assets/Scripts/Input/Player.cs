@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     private float oldRotation = 0;
     private float newRotation;
     [SerializeField] float twistMultiplier = 2; //the higher the value, the more twists required
-    [SerializeField] float resistance;
     //Grab
     private string oldGrab = "";
     private string newGrab;
