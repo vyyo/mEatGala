@@ -300,6 +300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7542c485dceea34087580952196361d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockSFX: {fileID: 8300000, guid: a1a2ff9d4d34754478a37250dcb8bcee, type: 3}
+  biteSFX: {fileID: 8300000, guid: b8941fd388f2bfa42bc718dcf9ae8f3d, type: 3}
+  twistSFX: {fileID: 8300000, guid: 3f201026dd9e0df4b81a15f58b6fd2f8, type: 3}
+  grabSFX: {fileID: 8300000, guid: 3568f5e101b9fd447b3e172558a370e5, type: 3}
   playerAnimator: {fileID: 2249209729879166335}
   iconAnimator: {fileID: 2848512594577895220}
   moveSpeed: 5

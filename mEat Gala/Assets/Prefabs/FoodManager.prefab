@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1bd8e1da4c807469386404756b0402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newCourseSFX: {fileID: 8300000, guid: 4bed2591100921746961119a1fb8260d, type: 3}
   foods:
   - {fileID: 11400000, guid: d8a5237d509bc7a498fdae8cc54f89af, type: 2}
   - {fileID: 11400000, guid: 82da27d5802fb3947a209b6185be7524, type: 2}

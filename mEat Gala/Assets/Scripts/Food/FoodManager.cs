@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FoodManager : MonoBehaviour
 {
+    [SerializeField] AudioClip newCourseSFX;
     [SerializeField] Food[] foods; //all the foods available throughout the run
     [SerializeField] int currentCourse = 0; //the course to be displayed. The amount of food for each course is double this value
     [SerializeField] int[] foodAmounts; //how many FoodContainers will be spawned on each course

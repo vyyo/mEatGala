@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] AudioClip newCourseSFX;
+    [SerializeField] AudioClip damageSFX;
 
     public static GameManager gameManager;
 
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
     public static Vector2 startingPosition = new Vector2(0, -6); //the hands are set to this position at the start of the game and inbetween waves
 
     public Balloon balloon;
+
+    public AudioManager audioManager;
 
     void Awake()
     {
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
         {
             player.GetComponent<Transform>().position = startingPosition;
             balloon.balloonAnimator.Play("BalloonWaiter");
+            audioManager.PlayCourseSFX(newCourseSFX);
             foodManager.NextCourse();
         }
     }
@@ -60,6 +65,9 @@ public class GameManager : MonoBehaviour
         player.gameObject.transform.position = startingPosition;
         player.target = null;
         playerHealth = playerHealth - 1;
+
+        audioManager.PlayDMGSFX(damageSFX);
+
         if(playerHealth <= 0)
         {
             GameOver();

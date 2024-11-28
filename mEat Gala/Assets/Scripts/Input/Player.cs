@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     PlayerControls controls;
+
+    [SerializeField] AudioClip lockSFX;
+    [SerializeField] AudioClip biteSFX;
+    [SerializeField] AudioClip twistSFX;
+    [SerializeField] AudioClip grabSFX;
+    
     [SerializeField] Animator playerAnimator;
     [SerializeField] Animator iconAnimator;
 
@@ -105,6 +111,9 @@ public class Player : MonoBehaviour
         if(bit)
         {
             target.resistance = target.resistance - 1;
+
+            GameManager.gameManager.audioManager.PlayInputSFX(biteSFX);
+
             bit = false;
         }
     }
@@ -123,6 +132,8 @@ public class Player : MonoBehaviour
             else
             {
                 target.resistance = target.resistance - Mathf.Abs(angleDifference/twistMultiplier); //removing Mathf.Abs makes it so resistance only decreases when twisting in one direction
+
+                GameManager.gameManager.audioManager.PlayInputSFX(twistSFX);
             }
         }
         oldRotation = newRotation;
@@ -137,6 +148,8 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("DMG");
                 target.resistance = target.resistance - 1;
+
+                GameManager.gameManager.audioManager.PlayInputSFX(grabSFX);
             }
             oldGrab = newGrab;
         }
@@ -191,6 +204,8 @@ public class Player : MonoBehaviour
                     break;
                 }
             }
+
+            GameManager.gameManager.audioManager.PlayCourseSFX(lockSFX);
         }
     }
 }

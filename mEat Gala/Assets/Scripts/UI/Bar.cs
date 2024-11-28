@@ -3,8 +3,11 @@ using UnityEngine.UI;
 
 public class Bar : MonoBehaviour
 {
+    [SerializeField] AudioClip hungerSFX;
     Image barFill;
     [SerializeField] float depletionMultiplier = 2;
+
+    bool hungerTrigger = false;
     void Awake()
     {
         barFill = GetComponent<Image>();
@@ -17,6 +20,16 @@ public class Bar : MonoBehaviour
             barFill.fillAmount = GameManager.gameManager.playerSaturation / 100f;
         }
         
+        if(!hungerTrigger && GameManager.gameManager.playerSaturation <= 65)
+        {
+            hungerTrigger = true;
+            GameManager.gameManager.audioManager.PlayHungerSFX(hungerSFX);
+        }
+
+        if(hungerTrigger && GameManager.gameManager.playerSaturation > 65)
+        {
+            hungerTrigger = false;
+        }
 
         if(GameManager.gameManager.playerSaturation <= 0)
         {

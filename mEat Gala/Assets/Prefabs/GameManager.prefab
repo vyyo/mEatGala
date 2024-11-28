@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73417c0fbd224184a97e676dccfcb4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newCourseSFX: {fileID: 8300000, guid: 4bed2591100921746961119a1fb8260d, type: 3}
+  damageSFX: {fileID: 8300000, guid: 032f2358cf6b4b04bbb21c0491b51e24, type: 3}
   gameOverSceneIndex: 3
   foodManager: {fileID: 0}
   player: {fileID: 0}
@@ -51,3 +53,4 @@ MonoBehaviour:
   playerHealth: 3
   playerSaturation: 100
   balloon: {fileID: 0}
+  audioManager: {fileID: 0}
