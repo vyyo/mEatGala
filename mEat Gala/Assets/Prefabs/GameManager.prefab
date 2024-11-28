@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73417c0fbd224184a97e676dccfcb4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverSceneIndex: 3
   foodManager: {fileID: 0}
   player: {fileID: 0}
   foodCount: 0
+  playerHealth: 3
+  playerSaturation: 100
+  balloon: {fileID: 0}

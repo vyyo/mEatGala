@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager gameManager;
 
+    [SerializeField] int gameOverSceneIndex;
+
     [SerializeField] FoodManager foodManager;
     public Player player;
     public int foodCount = 0; //remaining amount of foodContainer objs. When it hits 0, currentCourse goes up and a new course is displayed
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game over!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(gameOverSceneIndex);
     }
 
     public void NextScene(int sceneIndex)

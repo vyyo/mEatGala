@@ -877,10 +877,6 @@ PrefabInstance:
       propertyPath: foodManager
       value: 
       objectReference: {fileID: 281723470}
-    - target: {fileID: 7830048894346181423, guid: 011a3a25efeeab6428c3bdff0c8ef84d, type: 3}
-      propertyPath: balloonAnimator
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
