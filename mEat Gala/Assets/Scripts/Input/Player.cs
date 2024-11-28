@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -86,7 +85,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        if(GameManager.gameManager.playerSaturation >= 65)
+        if(GameManager.gameManager.playerSaturation >= reverseThreshold)
         {
             transform.position = new Vector2 (transform.position.x, transform.position.y) + (move * Time.deltaTime * moveSpeed);
         }

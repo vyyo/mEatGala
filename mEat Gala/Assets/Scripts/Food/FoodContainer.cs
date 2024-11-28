@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations;
 
 public class FoodContainer : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class FoodContainer : MonoBehaviour
         inputType = (int) food.inputType;
 
         spriteRenderer.sprite = food.foodSprite;
-        animator.runtimeAnimatorController = food.animations;
+        animator.runtimeAnimatorController = food.animations as RuntimeAnimatorController;
         animator.SetFloat("Resistance", resistance);
 
 

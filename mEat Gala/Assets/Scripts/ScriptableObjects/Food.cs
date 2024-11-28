@@ -1,4 +1,4 @@
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Food", menuName = "Food", order = 0)]
@@ -9,7 +9,7 @@ public class Food : ScriptableObject
     public Sprite foodSprite;
     public float resistance = 1;
     public int saturation = 1;
-    public AnimatorController animations;
+    public RuntimeAnimatorController animations;
 
     public enum Courses
     {
