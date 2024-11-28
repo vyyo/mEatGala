@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 47ac4fc27a9760b49ad8f312123a803a
+guid: bd1dffb2f4c404e44a6f59586b2add89
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Balloon_Testo
+  - name: Balloon_VoltoVisto
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -134,7 +134,7 @@ ScriptedImporter:
       y: 4
       width: 700
       height: 350
-    spriteID: 747a50b7d89a49c44b91aa77a1a3ce97
+    spriteID: 46a21476dfca21b4dab0bd4c8870721a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,13 +146,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1013206877
-    name: Balloon_Testo
+    guid: -14688541
+    name: Balloon_VoltoVisto
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Balloon_Testo
+    - name: BalloonProtagDmg
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -160,7 +160,7 @@ ScriptedImporter:
         y: 0
         width: 700
         height: 350
-      spriteId: 747a50b7d89a49c44b91aa77a1a3ce97
+      spriteId: 46a21476dfca21b4dab0bd4c8870721a
     linkedCells: []
     parentIndex: -1
   platformSettings:

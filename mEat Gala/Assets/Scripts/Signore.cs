@@ -25,9 +25,14 @@ public class Signore : MonoBehaviour
         damageCountDown = damageTimer;
 
         stance = 0; //inital stance(0 = external, 1 = internal, 2 = front)
-        signoreAnimator.Play("SignoreExternal");
         currentStanceChance1 = stanceChance1;
         currentStanceChance2 = stanceChance2;
+    }
+
+    void Start()
+    {
+        signoreAnimator.Play("SignoreExternal");
+        GameManager.gameManager.balloon.balloonAnimator.Play("BalloonSala");
     }
 
     void FixedUpdate()
@@ -48,12 +53,14 @@ public class Signore : MonoBehaviour
         }
         if(damage)
         {
+            GameManager.gameManager.balloon.balloonAnimator.Play("BalloonProtagDmg");
             damageCountDown -= Time.fixedDeltaTime;
             if(damageCountDown <= 0)
             {
                 GameManager.gameManager.Damage();
                 stance = 0;
                 signoreAnimator.Play("SignoreExternal");
+                GameManager.gameManager.balloon.balloonAnimator.Play("BalloonSala");
                 damageCountDown = damageTimer;
                 damage = false;
             }
@@ -106,12 +113,15 @@ public class Signore : MonoBehaviour
         {
             case 0:
                 signoreAnimator.Play("SignoreExternal");
+                GameManager.gameManager.balloon.balloonAnimator.Play("BalloonSala");
             break;
             case 1:
                 signoreAnimator.Play("SignoreInternal");
+                GameManager.gameManager.balloon.balloonAnimator.Play("BalloonTalk");
             break;
             case 2:
                 signoreAnimator.Play("SignoreFront");
+                GameManager.gameManager.balloon.balloonAnimator.Play("BalloonProtag");
             break;
         }
         Debug.Log(stance);

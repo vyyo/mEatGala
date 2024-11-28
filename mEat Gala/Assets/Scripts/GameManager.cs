@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public static Vector2 startingPosition = new Vector2(0, -6); //the hands are set to this position at the start of the game and inbetween waves
 
+    public Balloon balloon;
+
     void Awake()
     {
         if(gameManager != null)
