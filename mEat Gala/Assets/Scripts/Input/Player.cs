@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     PlayerControls controls;
     [SerializeField] Animator playerAnimator;
+    [SerializeField] Animator iconAnimator;
 
     //Move
     Vector2 move;
@@ -73,6 +74,7 @@ public class Player : MonoBehaviour
         else
         {
             playerAnimator.SetBool("Eating", false);
+            iconAnimator.SetBool("Eating", false);
             if(foodPositions.Count > 0)
             {
                 CompareDistance();
@@ -171,6 +173,25 @@ public class Player : MonoBehaviour
         {
             target = other.GetComponent<FoodContainer>();
             gameObject.transform.position = target.transform.position;
+            iconAnimator.SetBool("Eating", true);
+            switch(target.inputType)
+            {
+                case 1:
+                {
+                    iconAnimator.Play("IconTap");
+                    break;
+                }
+                case 2:
+                {
+                    iconAnimator.Play("IconTwist");
+                    break;
+                }
+                case 3:
+                {
+                    iconAnimator.Play("IconGrab");
+                    break;
+                }
+            }
         }
     }
 }
