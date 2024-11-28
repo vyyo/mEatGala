@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         if(GameManager.gameManager.foodCount <= 0)
         {
             player.GetComponent<Transform>().position = startingPosition;
+            balloon.balloonAnimator.Play("BalloonWaiter");
             foodManager.NextCourse();
         }
     }
