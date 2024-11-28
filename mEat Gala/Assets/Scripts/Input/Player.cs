@@ -73,8 +73,11 @@ public class Player : MonoBehaviour
         else
         {
             playerAnimator.SetBool("Eating", false);
-            CompareDistance();
-            AutoMove();
+            if(foodPositions.Count > 0)
+            {
+                CompareDistance();
+                AutoMove();
+            }
             Move();
         }
     }

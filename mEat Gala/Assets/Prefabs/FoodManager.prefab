@@ -283,7 +283,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 53e35e52420b84548a00298241bf6d57, type: 2}
   - {fileID: 11400000, guid: 524ec6ab44080004abef69613040a3c9, type: 2}
   currentCourse: 0
-  foodAmounts: 03000000050000000700000005000000
+  foodAmounts: 03000000040000000600000004000000
   foodContainer: {fileID: 6736330148681201360, guid: 6ca37fcf72d9fe7409c822900e0cd08d, type: 3}
   targets:
   - {fileID: 394348756653916343}
