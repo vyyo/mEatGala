@@ -5,25 +5,16 @@ public class FoodManager : MonoBehaviour
 {
     [SerializeField] Food[] foods; //all the foods available throughout the run
     [SerializeField] int currentCourse = 0; //the course to be displayed. The amount of food for each course is double this value
+    [SerializeField] int[] foodAmounts; //how many FoodContainers will be spawned on each course
     [SerializeField] GameObject foodContainer; //empty food prefab, instantiated on FoodSpawn
 
     [SerializeField] GameObject[] targets; //target positions for FoodSpawn()
-    /*[SerializeField] GameObject table; //the table object/boundary, on which food will be spawned
-    List<Bounds> tableBounds = new List<Bounds>(); //list of spawn areas for FoodSpawn*/
 
     void Start()
     {
-        //fill tableBounds
-        /*BoxCollider2D[] tableColliders = table.GetComponentsInChildren<BoxCollider2D>();
-        foreach (BoxCollider2D collider in tableColliders)
-        {
-            tableBounds.Add(collider.bounds);
-        }*/
-        //first course
         NextCourse();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -31,9 +22,6 @@ public class FoodManager : MonoBehaviour
 
     private void FoodSpawn(Food food, GameObject target)
     {
-        /*int i = Random.Range(0, tableBounds.Count);
-        float randomPosX = Random.Range(tableBounds[i].min.x, tableBounds[i].max.x);
-        float randomPosY = Random.Range(tableBounds[i].min.y, tableBounds[i].max.y);*/
         var newContainer = Instantiate(foodContainer, target.transform.position, new Quaternion(0,0,0,0));
         newContainer.GetComponent<FoodContainer>().FillContainer(food);
     }
@@ -64,7 +52,7 @@ public class FoodManager : MonoBehaviour
 
         if(availableFoods.Count > 0)
         {
-            for(int i = 0; i < currentCourse * 2; i++)
+            for(int i = 0; i < foodAmounts[currentCourse - 1]; i++)
             {
                 int randomTarget = Random.Range(0, freeTargets.Count);
                 FoodSpawn(availableFoods[Random.Range(0, availableFoods.Count)],freeTargets[randomTarget]);
