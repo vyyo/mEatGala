@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         GameManager.gameManager.foodCount = GameManager.gameManager.foodCount - 1;
         playerSaturation = playerSaturation + saturation;
+
         if(GameManager.gameManager.foodCount <= 0)
         {
             player.GetComponent<Transform>().position = startingPosition;

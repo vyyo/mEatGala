@@ -191,4 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 2249209729879166335}
   moveSpeed: 5
+  autoMoveSpeedMultiplier: 8
+  reverseThreshold: 65
   twistMultiplier: 2
+  target: {fileID: 0}
+  foodPositions: []

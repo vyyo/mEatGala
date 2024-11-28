@@ -24,6 +24,8 @@ public class FoodManager : MonoBehaviour
     {
         var newContainer = Instantiate(foodContainer, target.transform.position, new Quaternion(0,0,0,0));
         newContainer.GetComponent<FoodContainer>().FillContainer(food);
+        
+        GameManager.gameManager.player.foodPositions.Add(newContainer);
     }
 
 

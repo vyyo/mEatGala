@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     //Move
     Vector2 move;
     [SerializeField] float moveSpeed = 3;
+    [SerializeField] float autoMoveSpeedMultiplier = 3; //the higher the value, the slower the AutoMove()
     [SerializeField] int reverseThreshold = 65; //if saturation is lower than this, move vector is inverted
     //Twist
     Vector2 turn;
@@ -23,6 +25,9 @@ public class Player : MonoBehaviour
     private bool bit = false;
 
     public FoodContainer target; //targeted FoodContainer
+
+    public List<GameObject> foodPositions; //the positions of all current foods. Used to calculate auto movement
+    GameObject chasedFood; //the food the player autoomatically moves towards
 
     void Awake()
     {
@@ -68,9 +73,10 @@ public class Player : MonoBehaviour
         else
         {
             playerAnimator.SetBool("Eating", false);
+            CompareDistance();
+            AutoMove();
             Move();
         }
-        
     }
 
     void Move()
@@ -83,6 +89,11 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2 (transform.position.x, transform.position.y) - (move * Time.deltaTime * moveSpeed);
         }
+    }
+
+    void AutoMove()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, chasedFood.transform.position , Time.deltaTime * moveSpeed/autoMoveSpeedMultiplier);
     }
 
     void Bite()
@@ -124,6 +135,20 @@ public class Player : MonoBehaviour
                 target.resistance = target.resistance - 1;
             }
             oldGrab = newGrab;
+        }
+    }
+
+    void CompareDistance()
+    {
+        float distance = 0;
+
+        foreach(GameObject food in foodPositions)
+        {
+            if(Vector2.Distance(food.transform.position, transform.position) < distance || distance == 0)
+            {
+                distance = Vector2.Distance(food.transform.position, transform.position);
+                chasedFood = food;
+            }
         }
     }
 
