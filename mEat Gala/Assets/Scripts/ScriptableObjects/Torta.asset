@@ -15,6 +15,6 @@ MonoBehaviour:
   course: 4
   inputType: 3
   foodSprite: {fileID: 6001407374100905539, guid: 6505cbe95739c664a88ca8d5ec86bd0c, type: 3}
-  resistance: 15
+  resistance: 20
   saturation: 40
   animations: {fileID: 9100000, guid: 8599955d3dcca7e459303a8fe7644f92, type: 2}
