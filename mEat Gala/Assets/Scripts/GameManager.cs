@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
     {
         GameManager.gameManager.foodCount = GameManager.gameManager.foodCount - 1;
         playerSaturation = playerSaturation + saturation;
+        if(playerSaturation > 100)
+        {
+            playerSaturation = 100;
+        }
 
         if(GameManager.gameManager.foodCount <= 0)
         {
