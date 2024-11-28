@@ -73,4 +73,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game over!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void NextScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+    }
 }

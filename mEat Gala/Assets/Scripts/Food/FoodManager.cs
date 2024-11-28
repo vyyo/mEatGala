@@ -10,6 +10,8 @@ public class FoodManager : MonoBehaviour
 
     [SerializeField] GameObject[] targets; //target positions for FoodSpawn()
 
+    [SerializeField] int nextScene; //scene selected when a wave generates no foodContainers
+
     void Start()
     {
         NextCourse();
@@ -64,7 +66,8 @@ public class FoodManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No valid foods for the current meal");
+            Debug.Log("Meal completed!");
+            GameManager.gameManager.NextScene(nextScene);
         }
     }
 }
